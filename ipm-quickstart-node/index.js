@@ -17,7 +17,7 @@ var path = require('path');
 var AccessToken = require('twilio').AccessToken;
 var IpMessagingGrant = AccessToken.IpMessagingGrant;
 var express = require('express'),
-    app     = express();
+    app    = express();
 
 
 var randomUsername = require('./randos');
@@ -37,7 +37,18 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/date', function(req,res){
-    console.log(req.body.hello);
+    //console.log(req.body.hello);
+    var data=[]
+    var dates=(chrono.parseDate(req.body.hello))
+    if (dates!==null)
+    {
+        console.log(dates)
+        console.log(req.body.hello)
+        data.push(dates)
+        data.push(req.body.hello)
+        console.log(data)
+        res.send(data)
+    }
     // console.log(req.key);
 //chrono.parseDate('An appointment on Sep 12-13')
 });
@@ -84,7 +95,7 @@ app.get('/token', function(request, response) {
 
 // Create http server and run it
 var server = http.createServer(app);
-var port = process.env.PORT || 3333;
+var port = process.env.PORT || 3001;
 server.listen(port, function() {
     console.log('Express server running on *:' + port);
 });

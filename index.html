@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twilio IP Messaging Quickstart</title>
+    <link rel="shortcut icon" href="//www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.ico">
+
+<!--
+    <script src="http://localhost:3001/socket.io/socket.io.js"></script>
+        <script type="text/javascript">
+        var socketio = io.connect()
+        console.log(socketio)
+        socketio.on("message_to_client", function(data) {
+    document.getElementById("chatlog").innerHTML = ("<hr/>" +
+    data['message'] + document.getElementById("chatlog").innerHTML);
+}); -->
+<script type="text/javascript">
+
+function sendMessage() {
+    var msg = document.getElementById("message_input").value;
+    socketio.emit("message_to_server", { message : msg});
+}
+            // our socket.io code goes here
+        </script>
+
+</head>
+<body>
+  <header>
+
+  </header>
+
+  <section>
+
+  </section>
+
+  <input type="text" id="message_input"/>
+            <button onclick="sendMessage()">send</button>
+            <div id="chatlog"></div>
+
+
+  <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
+  <script src="https://media.twiliocdn.com/sdk/rtc/js/ip-messaging/v0.10/twilio-ip-messaging.min.js"></script>
+
+
+
+</body>
+</html>

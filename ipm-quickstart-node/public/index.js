@@ -105,13 +105,13 @@ $(function() {
                 console.log('Created general channel:');
                 console.log(channel);
                 generalChannel = channel;
-                setupChannel();
+                //setupChannel();
             });
 
         } else {
             console.log('Found general channel:');
             console.log(generalChannel);
-            setupChannel();
+            //setupChannel();
         }
     });
 });
@@ -130,10 +130,10 @@ $(function() {
         // Listen for new messages sent to the channel
         generalChannel.on('messageAdded', function(message) {
 
-            // if (message.body.search("@")>=0)
-            // {
-            //     controlChannel.sendMessage(message.author+" "+ message.body)
-            // }
+             if (message.body.search("@")>=0)
+             {
+                 controlChannel.sendMessage(message.body)
+             }
 
 
 
@@ -149,7 +149,7 @@ $(function() {
             dog=$input.val();
 
             console.log(dog)
-            generalChannel.sendMessage("generalChannel "+$input.val());
+            //generalChannel.sendMessage($input.val());
 
 
             $input.val('');

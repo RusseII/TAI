@@ -102,13 +102,13 @@ $(function() {
                 console.log('Created lecture channel:');
                 console.log(channel);
                 lectureChannel = channel;
-                setupChannel();
+                //setupChannel();
             });
 
         } else {
             console.log('Found lecture channel:');
             console.log(lectureChannel);
-            setupChannel();
+            //setupChannel();
         }
     });
 });
@@ -143,7 +143,7 @@ $(function() {
             dog=$input.val();
 
             console.log(dog)
-            lectureChannel.sendMessage("lectureChannel "+$input.val());
+            //lectureChannel.sendMessage($input.val());
 
 
             //$input.val('');
